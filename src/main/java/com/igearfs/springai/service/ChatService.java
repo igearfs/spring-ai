@@ -11,6 +11,7 @@ public class ChatService {
     @Autowired
     public ChatService(OllamaChatModel chatModel) {
         this.chatModel = chatModel;
+
     }
 
     public String generateResponse(String message) {
