@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ChatService {
+
     private final OllamaChatModel chatModel;
 
     @Autowired
@@ -17,4 +18,5 @@ public class ChatService {
     public String generateResponse(String message) {
         return chatModel.call(message);
     }
+
 }
