@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Integration</title>
+</head>
+<body>
+<h1>Ollama Integration</h1>
+<div>
+    <textarea id="prompt" rows="4" cols="50" placeholder="Type your message here..."></textarea><br>
+    <button onclick="generateResponse()">Send</button>
+</div>
+<div id="response"></div>
+
+<script>
+    function generateResponse() {
+        const prompt = document.getElementById('prompt').value;
+        fetch(`/ai/generate?message=${encodeURIComponent(prompt)}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('response').innerText = data;
+            });
+    }
+</script>
+</body>
+</html>
